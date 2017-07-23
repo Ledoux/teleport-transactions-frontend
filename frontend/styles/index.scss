@@ -1,0 +1,15 @@
+// vendor
+@import './vendors/basscss.scss';
+
+// variables
+@import 'colors.scss';
+@import 'variables.scss';
+
+// defaults
+@import 'defaults.scss';
+
+// typography
+@import 'typography.scss';
+
+// components
+@import './components/TeleportWelcome.scss';

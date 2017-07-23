@@ -1,0 +1,15 @@
+{
+	"name": "teleport-transactions-frontend",
+	"description": "Teleport nodejs transactions template",
+  "author": "Erwan Ledoux",
+	"dependencies": {
+		"transactions-interface-state": "latest",
+		"transactions-interface-web": "latest"
+	},
+  "license": "MIT",
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/snipsco/teleport-transactions-frontend"
+  },
+	"version": "0.0.1"
+}
