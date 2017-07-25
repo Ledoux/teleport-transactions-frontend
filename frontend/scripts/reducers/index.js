@@ -1,10 +1,23 @@
 import { routerReducer as router } from 'react-router-redux'
 import { combineReducers } from 'redux'
-import { information } from 'transactions-interface-state'
-
-const rootReducer = combineReducers({
+const { authorization,
+  flash,
   information,
-  router
+  modal,
+  user
+} = require('transactions-interface-state').default
+
+import normalizer from './normalizer'
+import reselector from './reselector'
+
+const rootReducer = combineReducers({ authorization,
+  flash,
+  information,
+  modal,
+  normalizer,
+  reselector,
+  router,
+  user
 })
 
 export default rootReducer

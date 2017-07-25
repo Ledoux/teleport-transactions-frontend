@@ -3,8 +3,10 @@
 	"description": "Teleport nodejs transactions template",
   "author": "Erwan Ledoux",
 	"dependencies": {
+		"transactions-interface-normalizer": "latest",
 		"transactions-interface-state": "latest",
-		"transactions-interface-web": "latest"
+		"transactions-interface-web": "latest",
+		"redux-saga": "^0.15.3"
 	},
   "license": "MIT",
 	"repository": {
