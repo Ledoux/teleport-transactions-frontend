@@ -3,6 +3,7 @@
 	"description": "Teleport nodejs transactions template",
   "author": "Erwan Ledoux",
 	"dependencies": {
+		"lodash.kebabcase": "^4.1.1",
 		"transactions-interface-normalizer": "latest",
 		"transactions-interface-state": "latest",
 		"transactions-interface-web": "latest",
