@@ -40,7 +40,10 @@ class AccountPage extends Component {
     const { isUpload } = this.state
     return (<main className='page account-page main'>
       <div className='account-page__title'>
-        {firstName} {lastName} <LogoutLink className='logout-link account-page__logout'/>
+        {firstName} {lastName} <LogoutLink
+          className='logout-link account-page__logout'
+          signPath={SIGN_PATH}
+        />
       </div>
       <div className='account-page__control'>
         {

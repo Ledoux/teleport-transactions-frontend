@@ -1,0 +1,95 @@
+.account-page {
+  color: $dark-font-color;
+  font-family: $font-family;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-top: 6rem;
+  text-align: center;
+  @media (min-width: $md) {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  &__title {
+    border-bottom: 1px solid $medium-grey;
+    color: $middle-font-color;
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+  }
+  &__control {
+    height: 3rem;
+    margin-bottom: 1rem;
+  }
+  &__picture {
+    &__button {
+      background-color: transparent;
+      color: black;
+      &--uploader {
+        border-radius: 50%;
+        height: 8rem;
+        width: 8rem;
+        margin-bottom: 3.25rem;
+        &__text {
+          color: $light-font-color;
+          font-family: $font-family;
+          font-size: 14px;
+          padding-bottom: 1rem;
+          padding-top: 1.25rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+      }
+      &--avatar {
+        height: 8rem;
+        width: 8rem;
+        margin-bottom: 3rem;
+      }
+      &:focus {outline:0;}
+    }
+  }
+  &__activation {
+    &__title {
+      margin-bottom: 2rem;
+    }
+    &__modal {
+      padding-top: 2rem;
+      padding-left: 10%;
+      padding-right: 10%;
+      width: 80%;
+    }
+  }
+  &__setting {
+    font-size: 16px;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    overflow-y: hidden;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    @media (min-width: $lg) {
+      font-size: 18px;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+    &__field {
+      padding: 0.25rem;
+      padding-top: 1rem;
+      margin-left: 5%;
+      margin-right: 5%;
+      margin-bottom: 1rem;
+      @media (min-width: $lg) {
+        padding: 0.5rem;
+      }
+      &__key {
+        margin-right: 1rem;
+        font-weight: bold;
+      }
+      &__value {
+        font-weight: 500;
+        overflow-x: auto;
+      }
+    }
+  }
+}

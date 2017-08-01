@@ -1,0 +1,20 @@
+.signup-page {
+  color: $dark-font-color;
+  font-family: $font-family;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-top: 6rem;
+  text-align: left;
+  @media (min-width: $md) {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  &__title {
+    border-bottom: 1px solid $medium-grey;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+  }
+}
