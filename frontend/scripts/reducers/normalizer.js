@@ -2,7 +2,6 @@ import { createReducer } from 'transactions-redux-normalizer'
 
 import { getFilteredElements } from './reselector'
 import { appSchema } from '../utils/schemas'
-import { modeJoinsByCollectionName } from '../utils/authorization'
 
 const normalizer = createReducer({ schema: appSchema })
 

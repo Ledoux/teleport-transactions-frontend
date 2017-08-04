@@ -1,4 +1,4 @@
-const { createSubscription } = require('transactions-state-interface').default
+const { createSubscription } = require('transactions-interface-state').default
 
 import { getFilteredElements } from '../reducers/reselector'
 import modes from './modes'
