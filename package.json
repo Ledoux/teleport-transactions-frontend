@@ -4,7 +4,8 @@
   "author": "Erwan Ledoux",
 	"dependencies": {
 		"lodash.kebabcase": "^4.1.1",
-		"transactions-interface-normalizer": "latest",
+		"transactions-redux-normalizer": "latest",
+		"transactions-redux-reselector": "latest",
 		"transactions-interface-state": "latest",
 		"transactions-interface-web": "latest",
 		"redux-saga": "^0.15.3"
@@ -14,5 +15,5 @@
     "type": "git",
     "url": "https://github.com/snipsco/teleport-transactions-frontend"
   },
-	"version": "0.0.1"
+	"version": "0.0.2"
 }
