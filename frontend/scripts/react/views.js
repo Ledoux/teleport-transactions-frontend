@@ -1,14 +1,18 @@
+import { ContentPage } from 'transactions-interface-web'
+
 import AccountPage from './pages/AccountPage'
 import ConstructionPage from './pages/ConstructionPage'
 import HomePage from './pages/HomePage'
 import SigninPage from './pages/SigninPage'
 import SignupPage from './pages/SignupPage'
 import VerifyPage from './pages/VerifyPage'
+
 import UserCard from './components/UserCard'
-import UserHero  from './components/UserHero'
+
 import UserItem from './components/UserItem'
 
 export const PageComponentsByComponentsName = { AccountPage,
+  ContentPage,
   ConstructionPage,
   HomePage,
   SigninPage,
@@ -16,7 +20,5 @@ export const PageComponentsByComponentsName = { AccountPage,
   VerifyPage
 }
 
-export const ItemComponentsByComponentsName = { UserCard,
-  UserHero,
-  UserItem
-}
+export const CardComponentsByComponentsName = { UserCard }
+export const ItemComponentsByComponentsName = { UserItem }
