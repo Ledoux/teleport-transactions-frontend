@@ -1,0 +1,5 @@
+{
+  "frontend": {
+		"scssExclude": "node_modules\/(?!transactions-).*",
+  }
+}
