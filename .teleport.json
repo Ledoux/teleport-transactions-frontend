@@ -1,5 +1,6 @@
 {
   "frontend": {
 		"scssExclude": "/node_modules\\/(?!transactions-).*/"
-  }
+  },
+  "iconUrl": "https://raw.githubusercontent.com/Ledoux/teleport-transactions-frontend/master/teleport-transactions-frontend.png"
 }
