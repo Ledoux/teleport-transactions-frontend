@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import { Warning } from 'transactions-interface-web'
 
 const ConstructionPage = () => {
