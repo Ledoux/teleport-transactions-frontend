@@ -8,6 +8,7 @@
 		"transactions-redux-reselector": "latest",
 		"transactions-interface-state": "latest",
 		"transactions-interface-web": "latest",
+		"transactions-tooltip-help": "latest",
 		"redux-saga": "^0.15.3"
 	},
   "license": "MIT",
@@ -15,5 +16,5 @@
     "type": "git",
     "url": "https://github.com/Ledoux/teleport-transactions-frontend"
   },
-	"version": "0.0.13"
+	"version": "0.0.14"
 }

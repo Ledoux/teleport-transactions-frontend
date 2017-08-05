@@ -8,20 +8,22 @@ const { getFormEntity,
 } = require('transactions-interface-state').default
 import { Avatar,
   Button,
-  Icon
+  Icon,
+  InputForm
 } from 'transactions-interface-web'
 import { DELETE_PREFIX,
   getNormalizerEntity
 } from 'transactions-redux-normalizer'
 import { mergeReselector } from 'transactions-redux-reselector'
 
-import { getFilteredElements } from '../../reducers/reselector'
-import { automaticModes,
+import UserHero from './UserHero'
+
+const { automaticModes,
   joinedModes,
   joinedModeCollectionNames,
   joinedModeNames,
   modes
-} from '../../utils/subscription'
+} = require('../../utils/subscription').default
 
 class UserCard extends Component {
   constructor () {
@@ -52,13 +54,8 @@ class UserCard extends Component {
   }
   render () {
     const { admin,
-      email,
-      expertise,
-      firstName,
       id,
       isEdit,
-      lastName,
-      location,
       mergeFormEntity,
       modeFormJoins,
       updateFormJoinEntity
@@ -67,25 +64,7 @@ class UserCard extends Component {
       itemScope
       itemType='http://schema.org/Person'
     >
-      <div className='user-card__head'>
-        <div className='user-card__head__illustration col sm-col-4'>
-          <Avatar
-            className='avatar user-card__head__illustration__avatar'
-            id={id}
-          />
-        </div>
-        <div className='user-card__head__content col sm-col-8'>
-          <p className='user-card__head__content__name mb1'>
-            {firstName} {lastName}
-          </p>
-          <p className='user-card__head__content__location mb1'>
-            {location}
-          </p>
-          <p className='user-card__head__content__expertise mb1'>
-            {expertise}
-          </p>
-        </div>
-      </div>
+      <UserHero {...this.props} />
       <div className='user-card-section user-card__modes'>
         <div className='user-card-section__title'>
           Modes
@@ -133,27 +112,13 @@ class UserCard extends Component {
           }
           </div>
       </div>
-      <div className='user-card-section user-card__details'>
-        <div className='user-card-section__title'>
-          Details
-        </div>
-      </div>
-      <div className='user-card-section user-card__publications'>
-        <div className='user-card-section__title'>
-          Qualifying Publications
-        </div>
-      </div>
-      <div className='user-card-section user-card__checks'>
-        <div className='user-card-section__title'>
-          Last Checks
-        </div>
-      </div>
     </div>)
   }
 }
 
 UserCard.defaultProps = {
-  authorizedJoinedModeNames: []
+  authorizedJoinedModeNames: [],
+  isControl: true
 }
 
 function mapStateToProps (state, ownProps) {
@@ -167,20 +132,14 @@ function mapStateToProps (state, ownProps) {
   const { id } = ownProps
   const formUser = getFormEntity(state, 'users', id) || {}
   const { admin,
-    expertise,
     firstName,
-    location,
     lastName
   } =  Object.assign({}, ownProps, formUser)
   const modeFormJoins = getFormJoins(state, joinedModeCollectionNames)
   return {
     admin,
     joinUserId: value,
-    expertise,
-    modeFormJoins,
-    firstName,
-    location,
-    lastName
+    modeFormJoins
   }
 }
 export default connect(mapStateToProps, { mergeFormEntity,
