@@ -182,7 +182,7 @@ class App extends Component {
 }
 
 App.defaultProps = { BlockComponent: Warning,
-  pathname: window.location.pathname
+  pathname: typeof window !== 'undefined' && window.location.pathname
 }
 
 function mapStateToProps ({
