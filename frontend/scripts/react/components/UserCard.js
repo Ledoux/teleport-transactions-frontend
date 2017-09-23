@@ -1,11 +1,11 @@
 import classnames from 'classnames'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-const { getFormEntity,
+import { getFormEntity,
   getFormJoins,
   mergeFormEntity,
   updateFormJoinEntity
-} = require('transactions-interface-state').default
+} from 'transactions-cms-state'
 import { Avatar,
   Button,
   Icon,

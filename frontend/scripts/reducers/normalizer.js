@@ -1,13 +1,11 @@
-import { createReducer } from 'transactions-redux-normalizer'
+import { createAppSchema,
+  createReducer
+} from 'transactions-redux-normalizer'
 
-import { getFilteredElements } from './reselector'
-import { appSchema } from '../utils/schemas'
-
-const normalizer = createReducer({ schema: appSchema })
-
-const getNormalizerJoinEntity = (state, collectionNames) => {
-  // look first in the store state if we have the joined entity already
-  const joinedEntities = getFilteredElements(state, 'WITH_UNIQ_USER_JOIN', collectionName)
+function createNormalizer (description) {
+  const appSchema = createAppSchema(description)
+  const normalizer = createReducer({ schema: appSchema })
+  return normalizer
 }
 
-export default normalizer
+export default createNormalizer

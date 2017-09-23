@@ -18,11 +18,11 @@ const usersExploreOptions = [{ collectionName: 'users',
   RightInteractionComponent: CheckInteraction
 }]
 
-const HomePage = (props) => {
+const HomePage = props => {
   const { firstName } = props
   const transactionsProps = getTransactionsProps(props)
   return (
-    <main className='page home-page main'>
+    <main className='page home-page'>
       <Section extraClass='home-page__welcome'>
         <TeleportWelcome {...JSON.parse(window.TELEPORT_WELCOME_STRING)} />
       </Section>

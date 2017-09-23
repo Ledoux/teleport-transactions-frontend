@@ -1,12 +1,5 @@
-const { createAuthorization } = require('transactions-interface-state').default
+import { createAuthorization } from 'transactions-authorization-state'
 
-const { modeNamesBySingularOrPluralName,
-  modes
-} = require('../utils/subscription').default
-
-const authorization = createAuthorization({
-  modeNamesBySingularOrPluralName,
-  allModes: modes
-})
+const authorization = createAuthorization()
 
 export default authorization

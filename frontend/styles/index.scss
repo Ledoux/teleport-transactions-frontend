@@ -1,26 +1,11 @@
-// vendor
-@import './vendors/basscss.scss';
-
-// variables
+@import './vendors/index.scss';
 @import 'colors.scss';
 @import 'variables.scss';
-
-// defaults
 @import 'defaults.scss';
-
-// typography
 @import 'typography.scss';
-
-// components
-@import './components/TeleportWelcome.scss';
-@import './components/UserCard.scss';
-@import './components/UserHero.scss';
-@import './components/UserItem.scss';
-
-// pages
-@import './pages/AccountPage.scss';
-@import './pages/ConstructionPage.scss';
-@import './pages/HomePage.scss';
-@import './pages/SigninPage.scss';
-@import './pages/SignupPage.scss';
-@import './pages/VerifyPage.scss';
+@import './components/index.scss';
+@import './dashboards/index.scss';
+@import './cards/index.scss';
+@import './items/index.scss';
+@import './dashboards/index.scss';
+@import './pages/index.scss';

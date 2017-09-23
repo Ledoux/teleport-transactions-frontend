@@ -1,18 +1,43 @@
 import { fork } from 'redux-saga/effects'
-import { createTransactionsSaga,
-  getWatchesFromImportObject
-} from 'transactions-redux-request'
-const { authorizationSaga,
-  formSaga,
-  transactionsSaga,
-  userSaga
-} = require('transactions-interface-state').default
+import { createTokenizer,
+  watchRequestAuthorizationApiAction,
+  watchMergeNormalizerGetSignAction,
+  watchSetUser
+} from 'transactions-authorization-state'
+import { watchFormActions } from 'transactions-cms-state'
+import { watchAllActions,
+  watchTransactionFails
+} from 'transactions-interface-state'
+import { createTransactionsSaga } from 'transactions-redux-request'
 
-export default function * rootSaga () {
-  yield [
-    ...getWatchesFromImportObject(authorizationSaga),
-    ...getWatchesFromImportObject(formSaga),
-    ...getWatchesFromImportObject(transactionsSaga),
-    ...getWatchesFromImportObject(userSaga)
-  ].map(fork)
+function createRootSaga (config = {}) {
+  // unpack
+  const { setup: { IS_PRODUCTION },
+    store
+  } = config
+  const guestMode = store.getState().authorization.guestMode
+  if (IS_PRODUCTION) {
+    config.logger = null
+  }
+  // tokenizer
+  const tokenizer = createTokenizer({ guestMode })
+  // transactions
+  const { watchRequestTransactions } = createTransactionsSaga(Object.assign({ tokenizer },
+    config))
+  // root
+  function * rootSaga () {
+    yield [
+      // watchAllActions,
+      watchFormActions,
+      watchMergeNormalizerGetSignAction,
+      watchRequestAuthorizationApiAction,
+      watchRequestTransactions,
+      watchTransactionFails,
+      watchSetUser
+    ].map(fork)
+  }
+  // return
+  return rootSaga
 }
+
+export default createRootSaga

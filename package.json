@@ -4,11 +4,18 @@
   "author": "Erwan Ledoux",
 	"dependencies": {
 		"lodash.kebabcase": "^4.1.1",
-		"transactions-redux-normalizer": "latest",
-		"transactions-redux-reselector": "latest",
+		"transactions-authorization-state": "latest",
+		"transactions-authorization-web": "latest",
+		"transactions-cms-state": "latest",
+		"transactions-cms-web": "latest",
 		"transactions-interface-state": "latest",
 		"transactions-interface-web": "latest",
-		"transactions-tooltip-help": "latest",
+		"transactions-redux-normalizer": "latest",
+		"transactions-redux-request": "latest",
+		"transactions-redux-reselector": "latest",
+		"transactions-tooltip-web": "latest",
+		"transactions-user-state": "latest",
+		"transactions-user-web": "latest",
 		"redux-saga": "^0.15.3"
 	},
   "license": "MIT",
@@ -16,5 +23,5 @@
     "type": "git",
     "url": "https://github.com/Ledoux/teleport-transactions-frontend"
   },
-	"version": "0.0.16"
+	"version": "0.0.17"
 }
