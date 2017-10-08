@@ -4,9 +4,6 @@ import { reselect as cmsReselect,
 import { reselect as interfaceReselect,
   initialState as interfaceInitialState
 } from 'transactions-interface-state'
-import { reselect as mediaReselect,
-  initialState as mediaInitialState
-} from 'transactions-media-state'
 import { createReducer,
   getDirectFilteredElements,
 } from 'transactions-redux-reselector'
@@ -14,22 +11,22 @@ import { createReducer,
 const initialState = Object.assign({},
   interfaceInitialState,
   cmsInitialState,
-  mediaInitialState,
   {
-    'WITH_FEED_JOIN': {}
+    // put here your filter state
+    // WITH_SOMETHING: {}
   }
 )
 
 function appReselect (id, filter, elements) {
   switch (id) {
-    case 'WITH_FEED_JOIN':
-      return []
+    // define the filter rule
+    // case 'WITH_SOMETHING':
+    //  return elements.filter(elements => <your filter function> )
   }
 }
 
 const getters = [ interfaceReselect,
   cmsReselect,
-  mediaReselect,
   appReselect
 ]
 
