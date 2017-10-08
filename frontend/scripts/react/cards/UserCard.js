@@ -16,7 +16,7 @@ import { DELETE_PREFIX,
 } from 'transactions-redux-normalizer'
 import { mergeReselector } from 'transactions-redux-reselector'
 
-import UserHero from '../components/UserHero'
+import UserHero from '../heros/UserHero'
 
 class UserCard extends Component {
   constructor () {
