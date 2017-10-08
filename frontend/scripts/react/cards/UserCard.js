@@ -16,14 +16,7 @@ import { DELETE_PREFIX,
 } from 'transactions-redux-normalizer'
 import { mergeReselector } from 'transactions-redux-reselector'
 
-import UserHero from './UserHero'
-
-const { automaticModes,
-  joinedModes,
-  joinedModeCollectionNames,
-  joinedModeNames,
-  modes
-} = require('../../utils/subscription').default
+import UserHero from '../components/UserHero'
 
 class UserCard extends Component {
   constructor () {
@@ -122,7 +115,10 @@ UserCard.defaultProps = {
 }
 
 function mapStateToProps (state, ownProps) {
-  const {
+  const { authorization: { automaticModes,
+      joinedModes,
+      joinedModeCollectionNames
+    },
     reselector: {
       WITH_JOIN: {
         value

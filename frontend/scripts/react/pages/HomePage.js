@@ -1,16 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-const { getTransactionsProps } = require('transactions-interface-state').default
 import { BellButton,
-  CheckInteraction,
-  Explore,
+  Link,
   Section,
   Title,
-  TourButton
 } from 'transactions-interface-web'
+import { CheckInteraction,
+  Explore
+} from 'transactions-cms-web'
+import { ToursSection } from 'transactions-user-web'
 
 import TeleportWelcome from '../components/TeleportWelcome'
-import { TOUR_PATH } from '../../utils/apis'
 
 const usersExploreOptions = [{ collectionName: 'users',
   entityName: 'user',
@@ -19,14 +19,25 @@ const usersExploreOptions = [{ collectionName: 'users',
 }]
 
 const HomePage = props => {
-  const { firstName } = props
-  const transactionsProps = getTransactionsProps(props)
+  const { api,
+    firstName,
+    onboardingHelpers,
+    onboardingHref
+  } = props
   return (
-    <main className='page home-page'>
+    <main className='main page home-page'>
+      {
+        onboardingHref && onboardingHelpers && (
+          <Section extraClass='home-page__tutorial p3'>
+            <Link href={onboardingHref}>
+              Start the on boarding!
+            </Link>
+          </Section>
+        )
+      }
       <Section extraClass='home-page__welcome'>
         <TeleportWelcome {...JSON.parse(window.TELEPORT_WELCOME_STRING)} />
       </Section>
-
       {
         firstName && (
           <Section extraClass='home-page__explore p3'>
@@ -58,30 +69,30 @@ const HomePage = props => {
           </Section>
         )
       }
-
       {
-        !firstName && (
-          <Section extraClass='home-page__tour'>
-            <Title icon='experts' text='TOUR' />
-            <TourButton
-              email={'robert.totoscano@gmail.com'}
-              history={history}
-              helpersCollectionName='userOnboardings'
-              path={TOUR_PATH}
-            />
-            <p className='home-page__tour__subtitle'>
-              click here to explore the website as a user
-            </p>
-          </Section>
-        )
+        !firstName && users && users.length > 0 && api &&
+          api.tourPath && <ToursSection path={api.tourPath} users={users} />
       }
     </main>
   )
 }
 
-function mapStateToProps ({ user: { firstName }}) {
-  return {
-    firstName
+function mapStateToProps ({ user: { firstName },
+  tutorial,
+  tour: { currentTourUser,
+    users
+  }
+}) {
+  const onboardingTutorialKey = currentTourUser && `${currentTourUser.modeName}Onboardings`
+  const onboardingHelpers = currentTourUser && currentTourUser.modeName &&
+    tutorial[onboardingTutorialKey]
+  const onboardingHref = currentTourUser && currentTourUser.modeName &&
+    `/dashboard?tutorialCollectionName=${onboardingTutorialKey}`
+  return { currentTourUser,
+    firstName,
+    onboardingHelpers,
+    onboardingHref,
+    users
   }
 }
 export default connect(mapStateToProps)(HomePage)

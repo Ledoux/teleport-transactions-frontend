@@ -23,7 +23,6 @@ import { createNormalizer,
 import authorization from './authorization'
 import cardViewer from './cardViewer'
 import dashboardViewer from './dashboardViewer'
-import highlightViewer from './highlightViewer'
 import modalViewer from './modalViewer'
 import itemViewer from './itemViewer'
 import reselector from './reselector'
@@ -44,7 +43,6 @@ export function createRootReducer (config = {}) {
     explorations,
     flash,
     form,
-    highlightViewer,
     information,
     itemViewer,
     loading,

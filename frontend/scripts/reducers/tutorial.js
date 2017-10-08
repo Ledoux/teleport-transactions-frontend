@@ -1,7 +1,9 @@
 import { createTutorial } from 'transactions-tooltip-state'
 
-import help from '../react/help'
+import { activeOnboardings } from '../react/tutorials/active'
 
-const tutorial = createTutorial(help)
+const tutorial = createTutorial({
+  activeOnboardings
+})
 
 export default tutorial

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import UserHero from './UserHero'
+import UserHero from '../heros/UserHero'
 
 const UserItem = props => {
   return (<div className='user-item'
