@@ -1,3 +1,6 @@
+import { reselect as authorizationReselect,
+  initialState as authorizationInitialState
+} from 'transactions-authorization-state'
 import { reselect as cmsReselect,
   initialState as cmsInitialState
 } from 'transactions-cms-state'
@@ -10,6 +13,7 @@ import { createReducer,
 
 const initialState = Object.assign({},
   interfaceInitialState,
+  authorizationInitialState,
   cmsInitialState,
   {
     // put here your filter state
@@ -26,11 +30,12 @@ function appReselect (id, filter, elements) {
 }
 
 const getters = [ interfaceReselect,
+  authorizationReselect,
   cmsReselect,
   appReselect
 ]
 
-const reselector = createReducer({ initialState,
+const reselector = createReducer(initialState, {
   // This function says for the elements to be filtered given a rule
   // and the actual state for a specific filter
   reselect: (id, filterState, elements) => {

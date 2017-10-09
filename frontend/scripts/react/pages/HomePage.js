@@ -64,9 +64,7 @@ const HomePage = props => {
               isAdd
               label='users'
               options={usersExploreOptions}
-              placeholder='search for users'
-              {...transactionsProps}
-            />
+              placeholder='search for users' />
           </Section>
         )
       }
