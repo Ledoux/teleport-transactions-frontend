@@ -22,7 +22,8 @@ const HomePage = props => {
   const { api,
     firstName,
     onboardingHelpers,
-    onboardingHref
+    onboardingHref,
+    tourUsers
   } = props
   return (
     <main className='main page home-page'>
@@ -70,8 +71,8 @@ const HomePage = props => {
         )
       }
       {
-        !firstName && users && users.length > 0 && api &&
-          api.tourPath && <ToursSection path={api.tourPath} users={users} />
+        !firstName && tourUsers && tourUsers.length > 0 && api &&
+          api.tourPath && <ToursSection path={api.tourPath} users={tourUsers} />
       }
     </main>
   )
@@ -92,7 +93,7 @@ function mapStateToProps ({ user: { firstName },
     firstName,
     onboardingHelpers,
     onboardingHref,
-    users
+    tourUsers: users
   }
 }
 export default connect(mapStateToProps)(HomePage)
