@@ -1,3 +1,5 @@
-import { AdminDashboard } from 'transactions-cms-web'
+const view = { categoryName: 'dashboard',
+  ComponentsByName: {}
+}
 
-export const DashboardComponentsByComponentsName = { AdminDashboard }
+export default view

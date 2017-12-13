@@ -65,7 +65,6 @@ export function createRootReducer (config = {}) {
     pipeline,
     request,
     router,
-    scrap,
     setup,
     slugid,
     submit,

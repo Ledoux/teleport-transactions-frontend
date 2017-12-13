@@ -1,10 +1,9 @@
 import { fork } from 'redux-saga/effects'
 import { createTokenizer,
-  watchRequestAuthorizationApiAction,
   watchMergeNormalizerGetSignAction,
   watchSetUser
 } from 'transactions-authorization-state'
-import { watchFormActions } from 'transactions-cms-state'
+import { watchFormUpdateActions } from 'transactions-cms-state'
 import { watchAllActions,
   watchTransactionFails
 } from 'transactions-interface-state'
@@ -28,9 +27,8 @@ function createRootSaga (config = {}) {
   function * rootSaga () {
     yield [
       // watchAllActions,
-      watchFormActions,
+      watchFormUpdateActions,
       watchMergeNormalizerGetSignAction,
-      watchRequestAuthorizationApiAction,
       watchRequestTransactions,
       watchTransactionFails,
       watchSetUser
