@@ -1,7 +1,5 @@
-import { contentsLib as mediaContentsLib } from 'transactions-media-web'
-
 const view = { categoryName: 'content',
-  ComponentsByName: mediaContentsLib,
+  ComponentsByName: {},
   config: { isPlural: true }
 }
 

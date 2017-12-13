@@ -17,9 +17,9 @@ const TourPage = props => {
 const shownTourUsers = createSelector(({ tour: { users }}) => users,
   users => users.filter(({ isShown }) => isShown))
 
-export default connect(state => ({
+export default connect(state => {
   const { setup: { api: { tourPath } } } = state
   return { path: tourPath,
     users: shownTourUsers(state)
   }
-}))(TourPage)
+})(TourPage)
