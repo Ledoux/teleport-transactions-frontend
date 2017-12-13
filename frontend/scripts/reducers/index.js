@@ -21,7 +21,6 @@ import { createNormalizer,
   createRequest,
   createRouter
 } from 'transactions-redux-react'
-import { scrap } from 'transactions-media-state'
 import { createGuide } from 'transactions-tooltip-state'
 
 import browser from './browser'

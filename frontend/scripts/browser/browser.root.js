@@ -4,7 +4,6 @@ import { ConnectedRouter, routerReducer } from 'react-router-redux'
 import App from './App'
 import contentView from './contents'
 import dashboardView from './dashboards'
-import highlightView from './highlights'
 import modalView from './modals'
 import pageView, { PageComponentsByName } from './pages'
 import taskView from './tasks'
@@ -21,7 +20,6 @@ const createBrowserRoot = history => createRoot({ App,
   tutorials,
   views: [ contentView,
     dashboardView,
-    highlightView,
     modalView,
     pageView,
     taskView
