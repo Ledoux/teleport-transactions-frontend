@@ -1,12 +1,13 @@
-import { routerReducer as router } from 'react-router-redux'
 import { combineReducers } from 'redux'
+import { createAuthorization } from 'transactions-authorization-state'
 import { createBlockers,
+  createTracking,
+  createViewer,
   flash,
   information,
   loading,
   modal,
-  navigation,
-  search
+  navigation
 } from 'transactions-interface-state'
 import { tour,
   user
@@ -17,49 +18,62 @@ import { explorations,
   slugid
 } from 'transactions-cms-state'
 import { createNormalizer,
-  createRequest
-} from 'transactions-redux-request'
+  createRequest,
+  createRouter
+} from 'transactions-redux-react'
+import { scrap } from 'transactions-media-state'
+import { createGuide } from 'transactions-tooltip-state'
 
-import authorization from './authorization'
-import cardViewer from './cardViewer'
-import dashboardViewer from './dashboardViewer'
-import modalViewer from './modalViewer'
-import itemViewer from './itemViewer'
-import reselector from './reselector'
+import browser from './browser'
 import submit from './submit'
-import tutorial from './tutorial'
 
 export function createRootReducer (config = {}) {
+  // unpack
   const { history,
-    setup: { description }
+    initialState,
+    routerReducer,
+    tutorials,
+    views
   } = config
+  const { context, description } = config.setup
+  const collectionNames = description && description.collectionNames
+  // reducers
+  const authorization = createAuthorization(initialState.authorization)
   const blockers = createBlockers(history)
-  const normalizer = createNormalizer(description)
+  const guide = createGuide(tutorials)
+  const normalizer = createNormalizer(description, {
+    isDeleteJoin: false
+  })
+  const setup = (state = config.setup || {}) => state
   const request = createRequest()
-  const rootReducer = combineReducers({ authorization,
+  const router = createRouter(routerReducer)
+  const tracking = createTracking(context)
+  const viewer = createViewer(views, { collectionNames })
+
+  const rootReducer = combineReducers({
+    authorization,
     blockers,
-    cardViewer,
-    dashboardViewer,
+    browser,
     explorations,
     flash,
     form,
+    guide,
     information,
-    itemViewer,
     loading,
     modal,
-    modalViewer,
     navigation,
     normalizer,
     pipeline,
     request,
-    reselector,
     router,
-    search,
+    scrap,
+    setup,
     slugid,
     submit,
+    tracking,
     tour,
-    tutorial,
-    user
+    user,
+    viewer
   })
   return rootReducer
 }
