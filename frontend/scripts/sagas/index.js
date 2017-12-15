@@ -3,7 +3,7 @@ import { createTokenizer,
   watchMergeNormalizerGetSignAction,
   watchSetUser
 } from 'transactions-authorization-state'
-import { watchFormUpdateActions } from 'transactions-cms-state'
+import { watchUpdateFormActions } from 'transactions-cms-state'
 import { watchAllActions,
   watchTransactionFails
 } from 'transactions-interface-state'
@@ -27,7 +27,7 @@ function createRootSaga (config = {}) {
   function * rootSaga () {
     yield [
       // watchAllActions,
-      watchFormUpdateActions,
+      watchUpdateFormActions,
       watchMergeNormalizerGetSignAction,
       watchRequestTransactions,
       watchTransactionFails,

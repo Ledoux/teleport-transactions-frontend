@@ -5,18 +5,16 @@
 }
 
 .app {
-  background: $total-background-image;
+  color: $dark-grey;
   min-height: 100vh;
 }
 
 .page {
-  background-color: $light-grey;
   padding-top: $header-height;
   z-index: -1;
 }
 
 .main {
-  border-color: black;
   font-family: $font-family;
   min-height: 100vh;
 }

@@ -6,8 +6,7 @@ import { createBlockers,
   flash,
   information,
   loading,
-  modal,
-  navigation
+  modal
 } from 'transactions-interface-state'
 import { tour,
   user
@@ -24,6 +23,7 @@ import { createNormalizer,
 import { createGuide } from 'transactions-tooltip-state'
 
 import browser from './browser'
+import navigation from './navigation'
 import submit from './submit'
 
 export function createRootReducer (config = {}) {

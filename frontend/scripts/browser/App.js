@@ -4,6 +4,7 @@ import { compose } from 'redux'
 import { Footer,
   Header,
   Information,
+  Link,
   Modal,
   Navigation
 } from 'transactions-interface-web'
@@ -17,7 +18,16 @@ const App = ({ children,
 }) => {
   return (
     <div className='app'>
-      {!IS_UNDER_CONSTRUCTION && <Header menuLinks={menuLinks} />}
+      {
+        !IS_UNDER_CONSTRUCTION && (
+          <Header>
+            <span className='ml1 mr1'> or </span>
+            <Link className='link button button--alive button--inverse' href='/tour'>
+              Tour
+            </Link>
+          </Header>
+        )
+      }
       {!IS_UNDER_CONSTRUCTION && <Information />}
       {children}
       {!IS_UNDER_CONSTRUCTION && <Footer />}
